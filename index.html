@@ -129,17 +129,13 @@
     <div class="cartao">
       <section id="carregando">
         <h1>Abrindo o WhatsApp</h1>
-        <p>Estamos direcionando você para um ponto de atendimento parceiro disponível.</p>
+        <p>Direcionando para um agente credenciado</p>
         <div class="barra" aria-hidden="true"><span></span></div>
       </section>
 
       <section id="pronto" hidden>
         <h1>Ponto de atendimento encontrado</h1>
         <p>Você será atendido pelo WhatsApp do nosso ponto de atendimento parceiro.</p>
-        <div class="ponto" id="ponto" hidden>
-          <small>Ponto de atendimento parceiro</small>
-          <b id="ponto-nome"></b>
-        </div>
         <a class="botao" id="link-whatsapp" href="#">Abrir WhatsApp</a>
       </section>
 
@@ -192,10 +188,6 @@
 
         const link = 'https://wa.me/' + dados.telefone;
         document.getElementById('link-whatsapp').href = link;
-        if (dados.nome) {
-          document.getElementById('ponto-nome').textContent = dados.nome;
-          document.getElementById('ponto').hidden = false;
-        }
         mostrar('pronto');
         setTimeout(function () { window.location.replace(link); }, ESPERA_REDIRECIONAR_MS);
       } catch (erro) {
